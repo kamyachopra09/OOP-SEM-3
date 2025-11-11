@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+class Number {
+public:
+    int a, b;
+    int temp;
+
+    void accept() {
+        cout << "Enter the first number: ";
+        cin >> a;
+        cout << "Enter the second number: ";
+        cin >> b;
+    }
+
+    void swap(Number &obj) {
+        temp = obj.a;
+        obj.a = obj.b;
+        obj.b = temp;
+    }
+
+    void display() {
+        cout << "After swapping: " << endl;
+        cout << "First number: " << a << endl;
+        cout << "Second number: " << b << endl;
+    }
+};
+
+int main() {
+    Number n;
+
+    n.accept();
+    n.swap(n);
+    n.display();
+
+    return 0;
+}
