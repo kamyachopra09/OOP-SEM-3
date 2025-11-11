@@ -1,0 +1,35 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+int main() {
+    ifstream fin("First.txt");
+    char ch;
+    int digits = 0, spaces = 0, char_count = 0;
+
+    if (!fin.is_open()) {
+        cout << "File not found!" << endl;
+        return 0;
+    }
+
+    while (fin.get(ch)) {
+        if (isdigit(ch)) {
+            digits++;
+        } else if (isspace(ch)) {
+            spaces++;
+        } else {
+            char_count++;
+        }
+    }
+
+    fin.close();
+
+    cout << "Digits: " << digits << endl;
+    cout << "Spaces: " << spaces << endl;
+    cout << "Characters: " << char_count << endl;
+
+    return 0;
+}
