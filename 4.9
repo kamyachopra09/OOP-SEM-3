@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+class ClassB; // Forward declaration
+
+class ClassA {
+private:
+    int a;
+
+public:
+    void accept() {
+        cout << "Enter the first number: ";
+        cin >> a;
+    }
+
+    friend void sum(ClassA x, ClassB y);
+};
+
+class ClassB {
+private:
+    int b;
+
+public:
+    void accept() {
+        cout << "Enter the second number: ";
+        cin >> b;
+    }
+
+    friend void sum(ClassA x, ClassB y);
+};
+
+void sum(ClassA x, ClassB y) {
+    int s = x.a + y.b;
+    cout << "Sum = " << s << endl;
+}
+
+int main() {
+    ClassA n1;
+    ClassB n2;
+
+    n1.accept();
+    n2.accept();
+
+    sum(n1, n2);
+
+    return 0;
+}
