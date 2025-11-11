@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Vehicle {
+public:
+    string branch;
+    string model;
+
+public:
+    void accept() {
+        cout << "Enter branch: ";
+        cin >> branch;
+        cout << "Enter model: ";
+        cin >> model;
+    }
+
+    void display() {
+        cout << "Branch: " << branch << endl;
+        cout << "Model: " << model << endl;
+    }
+};
+
+class Car : public Vehicle {
+public:
+    string attribute;
+
+public:
+    void accept() {
+        Vehicle::accept();
+        cout << "Enter attribute: ";
+        cin >> attribute;
+    }
+
+    void display() {
+        Vehicle::display();
+        cout << "Attribute: " << attribute << endl;
+    }
+};
+
+class ElectricCar : public Car {
+public:
+    string batteryCapacity;
+
+public:
+    void accept() {
+        Car::accept();
+        cout << "Enter battery capacity: ";
+        cin >> batteryCapacity;
+    }
+
+    void display() {
+        Car::display();
+        cout << "Battery capacity: " << batteryCapacity << endl;
+    }
+};
+
+int main() {
+    ElectricCar c1;
+
+    c1.accept();
+    c1.display();
+
+    return 0;
+}
