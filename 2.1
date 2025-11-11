@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+#include <limits> // Required for numeric_limits
+
+using namespace std;
+
+class City {
+public:
+    string cname;
+    long long pop; // Using long long for large population figures
+
+    // Function to accept city data
+    void accept() {
+        cout << "Enter city name & population: ";
+        // Using cin >> cname >> pop; to accept both on one line
+        cin >> cname >> pop;
+    }
+
+    // Function to display city data (used for the city with max population)
+    void display() {
+        cout << "City Name: " << cname << endl;
+        cout << "City Population: " << pop << endl;
+    }
+};
+
+int main() {
+    const int NUM_CITIES = 5;
+    City city[NUM_CITIES]; // Array of 5 City objects
+
+    cout << "--- Enter details for 5 cities ---" << endl;
+    for (int i = 0; i < NUM_CITIES; ++i) {
+        cout << "\nEnter details for City " << i + 1 << endl;
+        city[i].accept();
+    }
+
+    // Find the city with the maximum population
+    long long max_pop = 0;
+    int max_index = -1;
+
+    for (int i = 0; i < NUM_CITIES; ++i) {
+        if (city[i].pop > max_pop) {
+            max_pop = city[i].pop;
+            max_index = i;
+        }
+    }
+
+    cout << "\n--- City Having Highest Population ---" << endl;
+    if (max_index != -1) {
+        city[max_index].display();
+    } else {
+        cout << "No city data was entered or populations were invalid." << endl;
+    }
+
+    return 0;
+}
