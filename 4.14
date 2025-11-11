@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath> // Required for sqrt and pow
+
+using namespace std;
+
+class point {
+private:
+    int x, y;
+
+public:
+    void accept() {
+        cout << "Enter x coordinate: ";
+        cin >> x;
+        cout << "Enter y coordinate: ";
+        cin >> y;
+    }
+
+    // Friend function declaration
+    friend double diff(point p1, point p2);
+};
+
+// Function to calculate the distance between two points
+// Distance = sqrt((x2 - x1)^2 + (y2 - y1)^2)
+double diff(point p1, point p2) {
+    double temp;
+    temp = pow((double)(p2.x - p1.x), 2) + pow((double)(p2.y - p1.y), 2);
+    return sqrt(temp);
+}
+
+int main() {
+    point p1, p2;
+    double distance;
+
+    cout << "For the point P:" << endl;
+    p1.accept();
+
+    cout << "\nFor the point Q:" << endl;
+    p2.accept();
+
+    distance = diff(p1, p2);
+
+    cout << "\nDiff between the two points: " << distance << endl;
+
+    return 0;
+}
