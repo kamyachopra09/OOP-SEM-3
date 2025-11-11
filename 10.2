@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+class calc_square {
+public:
+    T num;
+
+public:
+    calc_square(T a) {
+        num = a;
+    }
+
+    void display() {
+        T m = num * num;
+        cout << "The square of integer is: " << m << endl;
+    }
+};
+
+template <class T>
+void func(T str) {
+    cout << "The concatenated string is: " << str << endl;
+}
+
+int main() {
+    int a;
+    cout << "Enter a value of 5: ";
+    cin >> a;
+
+    calc_square<int> c(a);
+    c.display();
+
+    string s;
+    cout << "Enter value of s: ";
+    cin >> s;
+
+    func(s);
+
+    return 0;
+}
