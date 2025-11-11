@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Book {
+private:
+    string book_title;
+    string author_name;
+    int price; // Changed to int for simplicity
+
+public:
+    // Function to accept book data
+    void accept() {
+        cout << "Enter book title: ";
+        cin >> book_title;
+        cout << "Enter author name: ";
+        cin >> author_name;
+        cout << "Enter book price: ";
+        cin >> price;
+    }
+
+    // Function to display book data
+    void display() {
+        cout << "Book Title: " << book_title << endl;
+        cout << "Author Name: " << author_name << endl;
+        cout << "Book Price: " << price << endl;
+    }
+};
+
+int main() {
+    Book b1;        // Create a Book object
+    Book *p;        // Declare a pointer to a Book object
+
+    p = &b1;        // Point the pointer 'p' to the object 'b1'
+
+    // Use the pointer to call the accept() function (using the arrow operator ->)
+    p->accept();
+
+    cout << "\n--- Displaying Book Data using Pointer ---" << endl;
+    // Use the pointer to call the display() function
+    p->display();
+
+    return 0;
+}
