@@ -1,0 +1,61 @@
+#include <iostream>
+
+using namespace std;
+
+class Beta;
+class Gamma;
+
+class Alpha {
+private:
+    int a;
+
+public:
+    void accept() {
+        cout << "Enter 1st number: ";
+        cin >> a;
+    }
+    friend void sum(Alpha x, Beta y, Gamma z);
+};
+
+class Beta {
+private:
+    int b;
+
+public:
+    void accept() {
+        cout << "Enter 2nd number: ";
+        cin >> b;
+    }
+    friend void sum(Alpha x, Beta y, Gamma z);
+};
+
+class Gamma {
+private:
+    int g;
+
+public:
+    void accept() {
+        cout << "Enter 3rd number: ";
+        cin >> g;
+    }
+    friend void sum(Alpha x, Beta y, Gamma z);
+};
+
+void sum(Alpha x, Beta y, Gamma z) {
+    int s = x.a + y.b + z.g;
+    cout << "Sum = " << s << endl;
+}
+
+int main() {
+    Alpha a;
+    Beta b;
+    Gamma g;
+
+    a.accept();
+    b.accept();
+    g.accept();
+
+    sum(a, b, g);
+
+    return 0;
+}
