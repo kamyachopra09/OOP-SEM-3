@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+class Sum {
+private:
+    int n, i;
+    int sum;
+
+public:
+    Sum() {
+        n = 20;
+        sum = 0;
+    }
+
+    void calculate() {
+        for (i = 1; i <= n; i++) {
+            sum = sum + i;
+        }
+    }
+
+    void display() {
+        cout << "Sum = " << sum << endl;
+    }
+};
+
+int main() {
+    Sum n;
+
+    n.calculate();
+    n.display();
+
+    return 0;
+}
