@@ -1,0 +1,27 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    ifstream fin("First.txt");
+    ofstream fout("Second.txt");
+    string line;
+
+    if (!fin.is_open()) {
+        cout << "File not found!" << endl;
+        return 0;
+    }
+
+    while (getline(fin, line)) {
+        fout << line << endl;
+    }
+
+    fin.close();
+    fout.close();
+
+    cout << "Contents copied successfully" << endl;
+
+    return 0;
+}
