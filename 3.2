@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+private:
+    int roll_no;
+    float percentage;
+
+public:
+    // Function to accept student data
+    void accept() {
+        cout << "Enter Roll no: ";
+        // Explicitly using 'this->' to access the member variable
+        cin >> this->roll_no; 
+        
+        cout << "Enter percentage: ";
+        // Explicitly using 'this->' to access the member variable
+        cin >> this->percentage; 
+    }
+
+    // Function to display student data
+    void display() {
+        cout << "Roll no: " << this->roll_no << endl;
+        cout << "Percentage: " << this->percentage << endl;
+    }
+};
+
+int main() {
+    Student s1; // Create a Student object
+
+    // The 'this' pointer is only used *inside* the member function, 
+    // so we call the function normally from main()
+    s1.accept();
+
+    cout << "\n--- Student Data ---" << endl;
+    s1.display();
+
+    return 0;
+}
