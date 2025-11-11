@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class College {
+private:
+    int rollno;
+    string name;
+    string course;
+
+public:
+    // Constructor with multiple parameters
+    College(string a, int b, string c) {
+        name = a;
+        rollno = b;
+        course = c;
+    }
+
+    void display() {
+        cout << "Name is: " << name << endl;
+        cout << "Roll no is: " << rollno << endl;
+        cout << "Course is: " << course << endl;
+    }
+};
+
+class department {
+private:
+    int not, nos; // not = Number of teachers, nos = Number of students
+    string name;
+
+public:
+    // Constructor with multiple parameters
+    department(string a, int b, int c) {
+        name = a;
+        not = b;
+        nos = c;
+    }
+
+    void display() {
+        cout << "In Name is: " << name << endl;
+        cout << "In Number of faculty is: " << not << endl;
+        cout << "In Number of number is: " << nos << endl;
+    }
+};
+
+int main() {
+    // College object creation using the constructor
+    College c("Mufaddal", 35, "Computer Engineering");
+
+    // Department object creation using the constructor
+    department d1("William", 80, 60);
+    department d2("Robert", 90, 75);
+    department d3(80, 75); // This constructor call in the handwritten main() is ambiguous/incorrect
+                           // based on the department constructor definition (string, int, int).
+                           // I will correct the third department object creation to match the structure:
+
+    department d3("Science", 80, 75);
+
+
+    c.display();
+    cout << "----------------------" << endl;
+    d1.display();
+    cout << "----------------------" << endl;
+    d2.display();
+    cout << "----------------------" << endl;
+    d3.display();
+
+
+    return 0;
+}
