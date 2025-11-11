@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class book {
+private:
+    string bname;
+    int bpages;
+    int bprice; // Changed bprice to int for simplicity, though float/double is also common.
+
+public:
+    // Function to accept book data
+    void accept() {
+        cout << "Enter the name of the book, pages, and price: ";
+        cin >> bname >> bpages >> bprice;
+    }
+
+    // Function to display book data (Name and Price)
+    void display() {
+        cout << "Name of the Book: " << bname << endl;
+        cout << "Price of the Book: " << bprice << endl;
+    }
+
+    // Function to get the price for comparison
+    int getPrice() const {
+        return bprice;
+    }
+
+    // Function to get the name for display
+    string getName() const {
+        return bname;
+    }
+};
+
+int main() {
+    book b1, b2; // Create two book objects
+
+    cout << "--- Enter details for Book 1 ---" << endl;
+    b1.accept();
+
+    cout << "--- Enter details for Book 2 ---" << endl;
+    b2.accept();
+
+    cout << "\n--- Comparing Prices ---" << endl;
+    
+    // Compare the prices of the two books
+    if (b1.getPrice() > b2.getPrice()) {
+        cout << b1.getName() << " has the greater price." << endl;
+    } else if (b2.getPrice() > b1.getPrice()) {
+        cout << b2.getName() << " has the greater price." << endl;
+    } else {
+        cout << "Both books have the same price." << endl;
+    }
+    
+    cout << "--- Details of the book with greater price (if applicable) ---" << endl;
+    // The original code only displays the book with the greater price
+    if (b1.getPrice() > b2.getPrice()) {
+        b1.display();
+    } else { // Handles b2 > b1 and b1 == b2 (displays b2 data for equality)
+        b2.display();
+    }
+
+
+    return 0;
+}
