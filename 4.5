@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+class num {
+private:
+    int a, b;
+
+public:
+    void accept() {
+        cout << "Enter the first number: ";
+        cin >> a;
+        cout << "Enter the second number: ";
+        cin >> b;
+    }
+
+    // Friend declaration
+    friend void get(num n);
+};
+
+void get(num n) {
+    if (n.a > n.b) {
+        cout << n.a << " is greater than " << n.b << endl;
+    } else if (n.b > n.a) {
+        cout << n.b << " is greater than " << n.a << endl;
+    } else {
+        cout << "Both numbers are equal." << endl;
+    }
+}
+
+int main() {
+    num n1;
+
+    n1.accept();
+    get(n1);
+
+    return 0;
+}
