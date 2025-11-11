@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Marks {
+public:
+    int m1, m2;
+    float per;
+
+    void accept() {
+        cout << "Enter the marks of two subjects: ";
+        cin >> m1 >> m2;
+    }
+
+    void calculate_percentage() {
+        per = (float)(m1 + m2) / 200.0 * 100.0;
+    }
+
+    void display() {
+        cout << "Percentage: " << per << endl;
+    }
+};
+
+class Student {
+public:
+    string name;
+    int roll;
+
+    void accept() {
+        cout << "Enter the name of student: ";
+        cin >> name;
+        cout << "Enter the roll number: ";
+        cin >> roll;
+    }
+
+    void display() {
+        cout << "The name of student: " << name << endl;
+        cout << "The roll no: " << roll << endl;
+    }
+};
+
+int main() {
+    Student s1;
+    Marks m1;
+
+    s1.accept();
+    m1.accept();
+
+    s1.display();
+    m1.calculate_percentage();
+    m1.display();
+
+    return 0;
+}
