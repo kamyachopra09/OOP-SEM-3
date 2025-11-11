@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+
+class Box; // Forward declaration
+
+class Cube {
+private:
+    float voli; // Volume of Cube
+
+public:
+    void accept() {
+        cout << "Enter the volume of a cube: ";
+        cin >> voli;
+    }
+
+    friend void findgreat(Cube c, Box b);
+};
+
+class Box {
+private:
+    float voli; // Volume of Box
+
+public:
+    void accept() {
+        cout << "Enter the volume of a box: ";
+        cin >> voli;
+    }
+
+    friend void findgreat(Cube c, Box b);
+};
+
+void findgreat(Cube c, Box b) {
+    if (c.voli > b.voli) {
+        cout << "Cube has larger volume." << endl;
+    } else if (b.voli > c.voli) {
+        cout << "Box has larger volume." << endl;
+    } else {
+        cout << "Both objects have the same volume." << endl;
+    }
+}
+
+int main() {
+    Cube c1;
+    Box b1;
+
+    c1.accept();
+    b1.accept();
+
+    findgreat(c1, b1);
+
+    return 0;
+}
