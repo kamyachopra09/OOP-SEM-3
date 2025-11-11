@@ -1,0 +1,38 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+// Function to display the elements of a stack by transferring them temporarily
+void display(stack<int> s) {
+    stack<int> temp_stack = s; 
+    while (!temp_stack.empty()) {
+        cout << temp_stack.top() << " ";
+        temp_stack.pop();
+    }
+    cout << endl;
+}
+
+int main() {
+    stack<int> s;
+
+    // Push elements
+    s.push(5);
+    s.push(10);
+    s.push(20);
+
+    cout << "Stack elements (top to bottom):" << endl;
+    display(s);
+
+    cout << "Top most element: " << s.top() << endl;
+
+    // Pop element
+    s.pop();
+
+    cout << "After one pop operation:" << endl;
+    display(s);
+    
+    cout << "Top function: " << s.top() << endl;
+
+    return 0;
+}
