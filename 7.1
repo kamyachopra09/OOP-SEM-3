@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+class Area {
+public:
+    float calculate(float length, float breadth) {
+        return length * breadth;
+    }
+
+    float calculate(float side) {
+        return side * side;
+    }
+};
+
+int main() {
+    Area a;
+
+    // Calculate Area of laboratory (Rectangle)
+    float area_lab = a.calculate(10.0, 6.0);
+    cout << "Area of laboratory: " << area_lab << endl;
+
+    // Calculate Area of square
+    float area_sq = a.calculate(5.0);
+    cout << "Area of square: " << area_sq << endl;
+
+    return 0;
+}
