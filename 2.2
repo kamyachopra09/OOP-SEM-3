@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+class Account {
+public:
+    int acc_no;
+    double bal; // Using double for balance
+
+    // Function to accept account data
+    void accept() {
+        cout << "Enter Account Number: ";
+        cin >> acc_no;
+        cout << "Enter Balance: ";
+        cin >> bal;
+    }
+
+    // Function to apply interest (or calculate/modify as done in the original logic)
+    void applyInterest() {
+        if (bal >= 5000.0) {
+            // Apply 10% interest
+            bal = bal + (bal * 0.10);
+        }
+    }
+
+    // Function to display account data
+    void display() {
+        cout << "Account Number: " << acc_no << endl;
+        cout << "Account Balance: " << bal << endl;
+    }
+};
+
+int main() {
+    const int NUM_ACCOUNTS = 10;
+    Account A[NUM_ACCOUNTS]; // Array of 10 Account objects
+
+    // 1. Accept data for all 10 accounts
+    cout << "--- Enter details for 10 accounts ---" << endl;
+    for (int i = 0; i < NUM_ACCOUNTS; ++i) {
+        cout << "\nAccount " << i + 1 << endl;
+        A[i].accept();
+    }
+
+    cout << "\n--- Accounts After Interest (Balance >= 5000) ---" << endl;
+    // 2. Apply interest and display details for eligible accounts
+    for (int i = 0; i < NUM_ACCOUNTS; ++i) {
+        // The original logic checks the balance before calling applyInterest
+        // The display is only called if the original balance was >= 5000
+        if (A[i].bal >= 5000.0) {
+            A[i].applyInterest();
+            A[i].display();
+            cout << "----------------------------------" << endl;
+        }
+    }
+
+    return 0;
+}
