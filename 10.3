@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+class calc {
+public:
+    T num1, num2;
+
+public:
+    calc(T a, T b) {
+        num1 = a;
+        num2 = b;
+    }
+
+    void display() {
+        cout << "Addition: " << num1 + num2 << endl;
+        cout << "Subtraction: " << num1 - num2 << endl;
+        cout << "Multiplication: " << num1 * num2 << endl;
+        cout << "Division: " << num1 / num2 << endl;
+        cout << "Modulus: " << (int)num1 % (int)num2 << endl;
+        cout << "Square of num 1: " << num1 * num1 << endl;
+        cout << "Square of num 2: " << num2 * num2 << endl;
+        cout << "Cube of num 1: " << num1 * num1 * num1 << endl;
+        cout << "Cube of num 2: " << num2 * num2 * num2 << endl;
+        cout << "Maximum: " << ((num1 > num2) ? num1 : num2) << endl;
+        cout << "Minimum: " << ((num1 < num2) ? num1 : num2) << endl;
+        cout << "Average: " << (num1 + num2) / 2.0 << endl;
+    }
+};
+
+int main() {
+    int a, b;
+
+    cout << "Enter two integers: ";
+    cin >> a >> b;
+
+    calc<int> c(a, b);
+
+    cout << "\nCalculate: " << endl;
+    c.display();
+
+    return 0;
+}
