@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+class BankAccount {
+private:
+    float balance;
+
+public:
+    void accept() {
+        cout << "Enter the balance information: ";
+        cin >> balance;
+    }
+
+    friend class Audit;
+};
+
+class Audit {
+public:
+    void display(BankAccount x) {
+        cout << "Balance Information: " << x.balance << endl;
+    }
+};
+
+int main() {
+    BankAccount b;
+    Audit a;
+
+    b.accept();
+    a.display(b);
+
+    return 0;
+}
