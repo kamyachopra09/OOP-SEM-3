@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class ILogin {
+public:
+    string name, password;
+
+public:
+    virtual void display() {
+        cout << "Name: " << name << endl;
+        cout << "Password: " << password << endl;
+    }
+};
+
+class EmailLogin : public ILogin {
+private:
+    string email_id;
+
+public:
+    void accept() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Password: ";
+        cin >> password;
+        cout << "Enter Email ID: ";
+        cin >> email_id;
+    }
+
+    void display() override {
+        cout << "EmailLogin Details: " << endl;
+        ILogin::display();
+        cout << "Email ID: " << email_id << endl;
+    }
+};
+
+class MembershipLogin : public ILogin {
+private:
+    int member_id;
+
+public:
+    void accept() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Password: ";
+        cin >> password;
+        cout << "Enter Member ID: ";
+        cin >> member_id;
+    }
+
+    void display() override {
+        cout << "MembershipLogin Details: " << endl;
+        ILogin::display();
+        cout << "Membership ID: " << member_id << endl;
+    }
+};
+
+int main() {
+    EmailLogin el;
+    MembershipLogin ml;
+
+    cout << "--- Email Login ---" << endl;
+    el.accept();
+
+    cout << "--- Membership Login ---" << endl;
+    ml.accept();
+
+    cout << "\n--- Displaying Login Details ---" << endl;
+    el.display();
+    cout << endl;
+    ml.display();
+
+    return 0;
+}
