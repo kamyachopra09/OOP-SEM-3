@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+class Time {
+private:
+    int H, M, S; // Hours, Minutes, Seconds
+    long long totalSeconds; // Using long long to hold the total seconds
+
+public:
+    // Function to accept time data
+    void accept() {
+        cout << "Enter time in hours minutes seconds: ";
+        cin >> H >> M >> S;
+    }
+
+    // Function to calculate total seconds
+    void calculate() {
+        // H * 3600 (seconds/hour) + M * 60 (seconds/minute) + S
+        totalSeconds = (long long)H * 3600 + (long long)M * 60 + S;
+    }
+
+    // Function to display the total seconds
+    void display() {
+        cout << "Total time in seconds: " << totalSeconds << endl;
+    }
+};
+
+int main() {
+    Time t1; // Create a Time object
+
+    // 1. Accept time
+    t1.accept();
+
+    // 2. Calculate total seconds
+    t1.calculate();
+
+    // 3. Display the result
+    t1.display();
+
+    return 0;
+}
