@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+private:
+    int rollno;
+    string name;
+
+public:
+    // Function to accept student data
+    void accept() {
+        cout << "Enter student name & roll no: ";
+        // Using cin >> name >> rollno; to accept both on one line
+        // The original code uses cin >> name >> roll_no; which is a common practice.
+        // Let's keep it simple with separate prompts for clarity, although the original code combines them.
+        cin >> name >> rollno;
+    }
+
+    // Function to display student data
+    void display() {
+        cout << "Name of student: " << name << endl;
+        cout << "Roll number of student: " << rollno << endl;
+    }
+};
+
+int main() {
+    // Create a single object of class Student
+    Student s1;
+
+    // Accept data for the student
+    s1.accept();
+
+    // Display the student data
+    s1.display();
+
+    return 0;
+}
