@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+class Teacher {
+private:
+    int experience;
+
+public:
+    Teacher(int e = 0) {
+        experience = e;
+    }
+
+    Teacher operator-(Teacher t) {
+        Teacher temp;
+        temp.experience = experience - t.experience;
+        return temp;
+    }
+
+    void display() {
+        cout << "Experience: " << experience << " year(s) overall." << endl;
+    }
+};
+
+int main() {
+    Teacher t1(40);
+    Teacher t2(10);
+    Teacher t3;
+
+    t3 = t1 - t2;
+
+    cout << "Difference in experience: " << endl;
+    t3.display();
+
+    return 0;
+}
