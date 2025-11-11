@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+private:
+    int per;
+    string name;
+
+public:
+    Student(string n, int percent) {
+        name = n;
+        per = percent;
+    }
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Percentage: " << per << endl;
+    }
+};
+
+int main() {
+    // Using the values from the handwritten output
+    Student s("Kanya", 96);
+
+    s.display();
+
+    return 0;
+}
