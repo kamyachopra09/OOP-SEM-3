@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Employee {
+public:
+    int empid;
+    string name;
+
+public:
+    void accept() {
+        cout << "Enter employee id: ";
+        cin >> empid;
+        cout << "Enter name: ";
+        cin >> name;
+    }
+
+    void display() {
+        cout << "Employee id: " << empid << endl;
+        cout << "Name: " << name << endl;
+    }
+};
+
+class Developer : public Employee {
+public:
+    string programminglanguage;
+
+public:
+    void accept() {
+        Employee::accept();
+        cout << "Enter programming language: ";
+        cin >> programminglanguage;
+    }
+
+    void display() {
+        Employee::display();
+        cout << "Programming Language: " << programminglanguage << endl;
+    }
+};
+
+class Manager : public Employee {
+public:
+    string department;
+
+public:
+    void accept() {
+        Employee::accept();
+        cout << "Enter department name: ";
+        cin >> department;
+    }
+
+    void display() {
+        Employee::display();
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main() {
+    Developer d;
+    Manager m;
+
+    cout << "--- Enter Developer Details ---" << endl;
+    d.accept();
+
+    cout << "--- Enter Manager Details ---" << endl;
+    m.accept();
+
+    cout << "\n--- Displaying Developer Details ---" << endl;
+    d.display();
+
+    cout << "\n--- Displaying Manager Details ---" << endl;
+    m.display();
+
+    return 0;
+}
