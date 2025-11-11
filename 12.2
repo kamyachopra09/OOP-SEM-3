@@ -1,0 +1,29 @@
+#include <iostream>
+#include <deque>
+
+using namespace std;
+
+int main() {
+    // Initial Deque (can act like a queue or stack)
+    deque<int> dq;
+    
+    // Push some elements (simulating the operations in the image)
+    dq.push_back(10); // Back element 10
+    dq.push_back(20);
+    dq.push_front(5); // Front element 5
+
+    cout << "Front element: " << dq.front() << endl;
+    cout << "Back element: " << dq.back() << endl;
+    
+    // Erase element at position 0 (the front element)
+    // The handwritten code attempts to erase at block 0 (dq.erase(dq.begin()));
+    dq.erase(dq.begin()); 
+    
+    cout << "After erase operation at front: " << endl;
+    for (int val : dq) {
+        cout << val << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
